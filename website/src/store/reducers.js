@@ -1,10 +1,7 @@
 import * as actions from './actions';
 import {getCategoryByID, getDefaultParser, getParserByID, getTransformerByID} from '../parsers';
 
-const defaultParser = getDefaultParser(getCategoryByID('css'));
-
-window.getDefaultParser = getDefaultParser;
-window.getCategoryByID = getCategoryByID;
+const defaultParser = getDefaultParser(getCategoryByID('javascript'));
 
 const initialState = {
 

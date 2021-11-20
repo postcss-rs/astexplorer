@@ -59,7 +59,7 @@ export const categories =
   });
 
 export function getDefaultCategory() {
-  return categoryByID.css;
+  return categoryByID.javascript;
 }
 
 export function getDefaultParser(category = getDefaultCategory()) {

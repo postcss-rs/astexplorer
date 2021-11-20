@@ -2,6 +2,7 @@ import Element from './tree/Element';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {publish} from '../../utils/pubsub.js';
+import {logEvent} from '../../utils/logger';
 import {treeAdapterFromParseResult} from '../../core/TreeAdapter.js';
 import {SelectedNodeProvider} from './SelectedNodeContext.js';
 import focusNodes from './focusNodes.js'
@@ -29,6 +30,11 @@ function reducer(state, element) {
   const newState = {...state, [element.name]: element.checked};
 
   global.localStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
+  logEvent(
+    'tree_view_settings',
+    element.checked ? 'enabled' : 'disabled',
+    element.name,
+  );
 
   return newState;
 }
